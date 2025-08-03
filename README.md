@@ -30,7 +30,7 @@ const scroll = new SmoothScroll({
   lerp: 0.1,              // Độ mạnh quán tính (0->1) (default: 0.13)
   mouseScrollScale: 1,     // Độ mạnh cuộn bằng chuột (default: 0.8)
   touchScrollScale: 2,     // Độ mạnh cuộn bằng cảm ứng (default: 3)
-  disableOnMobile: true   // Tắt trên mobile (default: true)
+  disableOnMobile: true,   // Tắt trên mobile (default: true)
   loop: true // (default: false)
 });
 ```
