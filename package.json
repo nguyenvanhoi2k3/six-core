@@ -1,6 +1,6 @@
 {
   "name": "six-core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/six-core.umd.min.js",
   "module": "dist/six-core.esm.min.js",
   "types": "dist/six-core.d.ts",
