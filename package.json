@@ -1,0 +1,30 @@
+{
+  "name": "six-core",
+  "version": "1.0.0",
+  "main": "dist/sixjs.umd.min.js",
+  "module": "dist/sixjs.esm.min.js",
+  "types": "dist/index.d.ts",
+  "unpkg": "dist/sixjs.umd.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguyenvanhoi2k3/sixjs.git"
+  },
+  "exports": {
+    "import": "./dist/sixjs.esm.min.js",
+    "require": "./dist/sixjs.umd.min.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "keywords": [
+    "animation",
+    "smooth-scroll",
+    "sixjs",
+    "scroll",
+    "gsap-alternative"
+  ],
+  "license": "ISC"
+}

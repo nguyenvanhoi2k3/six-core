@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  background-color: red;
+  width: 50px;
+  height: 50px;
+}
+
+.space {
+  padding: 50vh 0;
+}
+
+.scroll-wrapper {
+  position: relative;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+}
+
+.scroll-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-item {
+  padding: 100px;
+  text-align: center;
+  font-size: 1.25rem;
+  border-bottom: 1px solid #333;
+}

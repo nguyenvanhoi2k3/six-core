@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIX</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="scroll-wrapper">
+      <div class="scroll-inner">
+        <div class="scroll-item">🍀 Item 1</div>
+        <div class="scroll-item">🌼 Item 2</div>
+        <div class="scroll-item">🔥 Item 3</div>
+        <div class="scroll-item">🌈 Item 4</div>
+        <div class="scroll-item">🍉 Item 5</div>
+        <div class="scroll-item">🍀 Item 6</div>
+        <div class="scroll-item">🌼 Item 7</div>
+        <div class="scroll-item">🔥 Item 8</div>
+        <div class="scroll-item">🌈 Item 9</div>
+        <div class="scroll-item">🍉 Item 10</div>
+        <div class="scroll-item">🍉 Item 11</div>
+        <div class="scroll-item">🍉 Item 12</div>
+        <div class="scroll-item">🍉 Item 13</div>
+      </div>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/nguyen-van-hoi/six@v1.0.1/dist/six.iife.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script> -->
+
+    <script type="module" src="main.ts"></script>
+
+    <!-- <script>
+      // Initialize Lenis
+      const lenis = new Lenis({infinite: true});
+
+      // Use requestAnimationFrame to continuously update the scroll
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+        console.log("🚀 ~ lenis.scroll:", lenis.scroll)
+      }
+
+      requestAnimationFrame(raf);
+      if (lenis.scroll === 0) {
+        console.log("Trang web đang ở đầu trang");
+      } else {
+        console.log("Trang web chưa ở đầu trang");
+      }
+    </script> -->
+  </body>
+</html>
