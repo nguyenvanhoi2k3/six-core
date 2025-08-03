@@ -28,7 +28,7 @@ const config = [
   {
     input: 'index.ts',
     output: {
-      file: 'dist/sixjs.esm.min.js',
+      file: 'dist/six-core.esm.min.js',
       format: 'es',
       sourcemap: true,
     },
@@ -40,9 +40,9 @@ const config = [
   {
     input: 'index.ts',
     output: {
-      file: 'dist/sixjs.umd.min.js',
+      file: 'dist/six-core.umd.min.js',
       format: 'umd',
-      name: 'sixjs', // global name for browser
+      name: 'six-core', // global name for browser
       sourcemap: true,
     },
     plugins,
