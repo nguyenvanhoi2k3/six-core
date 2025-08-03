@@ -1,10 +1,13 @@
 {
   "name": "six-core",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "main": "dist/six-core.umd.min.js",
   "module": "dist/six-core.esm.min.js",
   "types": "dist/six-core.d.ts",
   "unpkg": "dist/six-core.umd.min.js",
+  "license": "MIT",
+
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nguyenvanhoi2k3/six-core.git"
@@ -17,14 +20,21 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c"
+    "dev": "vite",
+    "build": "rollup -c",
+    "preview": "vite preview"
   },
-  "keywords": [
-    "animation",
-    "smooth-scroll",
-    "sixjs",
-    "scroll",
-    "gsap-alternative"
-  ],
-  "license": "ISC"
+  "dependencies": {
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "rollup": "^4.44.1",
+    "rollup-plugin-dts": "^6.2.1",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.0"
+  }
 }
