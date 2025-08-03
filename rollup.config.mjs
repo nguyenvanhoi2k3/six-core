@@ -24,7 +24,7 @@ const plugins = [
 ];
 
 const config = [
-  // 1️⃣ ESM Build
+  // Cho ESModule
   {
     input: 'index.ts',
     output: {
@@ -36,13 +36,26 @@ const config = [
     external: [],
   },
 
-  // 2️⃣ UMD Build for CDN (IIFE-like)
+  // Cho Node.js hoặc bundler
   {
     input: 'index.ts',
     output: {
       file: 'dist/six-core.umd.min.js',
       format: 'umd',
-      name: 'six-core', // global name for browser
+      name: 'sixjs',
+      sourcemap: true,
+    },
+    plugins,
+    external: [],
+  },
+
+  // Cho CDN/browser
+  {
+    input: 'index.ts',
+    output: {
+      file: 'dist/six-core.iife.min.js',
+      format: 'iife',
+      name: 'sixjs',
       sourcemap: true,
     },
     plugins,
