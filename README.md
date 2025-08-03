@@ -3,14 +3,14 @@
 ## Installation
 
 ```bash
-npm install six-js
+npm install six-core
 ```
 
 ## Usage
 
 ```javascript
 // Init
-import { SmoothScroll } from 'six-js';
+import { SmoothScroll } from 'six-core';
 const scroll = new SmoothScroll({});
 
 // Start smooth scrolling
