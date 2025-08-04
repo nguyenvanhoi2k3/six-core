@@ -33,7 +33,7 @@ export class SmoothScroll {
   private resetVelocityTimeout: ReturnType<typeof setTimeout> | null = null
 
   constructor({
-    mouseScrollScale: wheelMultiplier = 0.8,
+    mouseScrollScale: wheelMultiplier = 1,
     touchScrollScale: touchMultiplier = 3,
     lerp = 0.13,
     disableOnMobile = true,

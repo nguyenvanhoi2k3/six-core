@@ -11,14 +11,14 @@ npm install six-core
 ```javascript
 // Init
 import { SmoothScroll } from "six-core";
-const scroll = new SmoothScroll({});
+const smoothScroll = new SmoothScroll({});
 
 // Start smooth scrolling
-scroll.start();
+smoothScroll.start();
 
 // Listen to scroll events
-scroll.on("scroll", (data) =>
-  console.log(scroll.isAtTop ? "At top:" : "Current scroll:", data.scroll)
+smoothScroll.on("scroll", (data) =>
+  console.log(smoothScroll.isAtTop ? "At top:" : "Current scroll:", data.scroll)
 );
 ```
 
@@ -29,11 +29,11 @@ scroll.on("scroll", (data) =>
 const scroll = new six.SmoothScroll({});
 
 // Start smooth scrolling
-scroll.start();
+smoothScroll.start();
 
 // Listen to scroll events
-scroll.on("scroll", (data) =>
-  console.log(scroll.isAtTop ? "At top:" : "Current scroll:", data.scroll)
+smoothScroll.on("scroll", (data) =>
+  console.log(smoothScroll.isAtTop ? "At top:" : "Current scroll:", data.scroll)
 );
 ```
 
@@ -42,7 +42,7 @@ scroll.on("scroll", (data) =>
 ```javascript
 const scroll = new SmoothScroll({
   lerp: 0.1, // Độ mạnh quán tính (0->1) (default: 0.13)
-  mouseScrollScale: 1, // Độ mạnh cuộn bằng chuột (default: 0.8)
+  mouseScrollScale: 0.8, // Độ mạnh cuộn bằng chuột (default: 1)
   touchScrollScale: 2, // Độ mạnh cuộn bằng cảm ứng (default: 3)
   disableOnMobile: true, // Tắt trên mobile (default: true)
   loop: true, // (default: false)
