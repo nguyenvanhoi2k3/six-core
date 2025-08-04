@@ -1,6 +1,6 @@
 import { SmoothScroll } from './index';
 
-const scroll = new SmoothScroll({});
+const scroll = new SmoothScroll({lerp: 0.13});
 
 scroll.start();
 

@@ -44,8 +44,8 @@ smoothScroll.on("scroll", (data) =>
 
 ```javascript
 const scroll = new SmoothScroll({
-  lerp: 0.1, // Độ mạnh quán tính (0->1) (default: 0.13)
-  mouseScrollScale: 0.8, // Độ mạnh cuộn bằng chuột (default: 1)
+  lerp: 0.1, // Độ mạnh quán tính (0->1) (default: 0.11)
+  mouseScrollScale: 0.8, // Độ mạnh cuộn bằng chuột (default: 0.9)
   touchScrollScale: 2, // Độ mạnh cuộn bằng cảm ứng (default: 3)
   disableOnMobile: true, // Tắt trên mobile (default: true)
   loop: true, // (default: false)

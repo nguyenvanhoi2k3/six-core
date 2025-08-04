@@ -17,61 +17,43 @@ export class ScrollHandle {
     this.el = el
     this.options = {
       wheelMultiplier: options.wheelMultiplier ?? 1,
-      touchMultiplier: options.touchMultiplier ?? 1,
+      touchMultiplier: options.touchMultiplier ?? 1
     }
 
-    this.el.addEventListener('wheel', this.onWheel, { passive: false })
-    this.el.addEventListener('touchstart', this.onTouchStart, { passive: true })
-    this.el.addEventListener('touchmove', this.onTouchMove, { passive: false })
-    this.el.addEventListener('touchend', this.onTouchEnd, { passive: true })
+    el.addEventListener('wheel', this.onWheel, { passive: false })
+    el.addEventListener('touchstart', this.onTouchStart, { passive: true })
+    el.addEventListener('touchmove', this.onTouchMove, { passive: false })
+    el.addEventListener('touchend', this.onTouchEnd, { passive: true })
   }
 
   on(event: 'scroll', cb: ScrollCallback): void {
     if (event === 'scroll') this.callback = cb
   }
 
-  private checkNestedScroll(node: HTMLElement, deltaX: number, deltaY: number): boolean {
-    const style = window.getComputedStyle(node)
-    const hasOverflowX = ['auto', 'scroll'].includes(style.overflowX)
-    const hasOverflowY = ['auto', 'scroll'].includes(style.overflowY)
-    if (!hasOverflowX && !hasOverflowY) return false
+  private checkNestedScroll(node: HTMLElement, dx: number, dy: number): boolean {
+    const style = getComputedStyle(node)
+    const ox = ['auto', 'scroll'].includes(style.overflowX)
+    const oy = ['auto', 'scroll'].includes(style.overflowY)
+    if (!ox && !oy) return false
 
-    const { scrollWidth, scrollHeight, clientWidth, clientHeight } = node
-    const isScrollableX = scrollWidth > clientWidth
-    const isScrollableY = scrollHeight > clientHeight
-    if (!isScrollableX && !isScrollableY) return false
+    const { scrollWidth, scrollHeight, clientWidth, clientHeight, scrollTop, scrollLeft } = node
+    const mx = scrollWidth > clientWidth
+    const my = scrollHeight > clientHeight
+    if (!mx && !my) return false
 
-    if (deltaY !== 0 && hasOverflowY && isScrollableY) {
-      const scrollTop = node.scrollTop
-      const maxScroll = scrollHeight - clientHeight
-      return (deltaY > 0 && scrollTop < maxScroll) || (deltaY < 0 && scrollTop > 0)
-    }
-
-    if (deltaX !== 0 && hasOverflowX && isScrollableX) {
-      const scrollLeft = node.scrollLeft
-      const maxScroll = scrollWidth - clientWidth
-      return (deltaX > 0 && scrollLeft < maxScroll) || (deltaX < 0 && scrollLeft > 0)
-    }
-
-    return false
+    const sx = dx && ox && mx && ((dx > 0 && scrollLeft < scrollWidth - clientWidth) || (dx < 0 && scrollLeft > 0))
+    const sy = dy && oy && my && ((dy > 0 && scrollTop < scrollHeight - clientHeight) || (dy < 0 && scrollTop > 0))
+    return !!(sx || sy)
   }
 
   private onWheel = (e: WheelEvent): void => {
-    const composedPath = e.composedPath() as HTMLElement[]
-    if (composedPath.some(node => node instanceof HTMLElement && this.checkNestedScroll(node, e.deltaX, e.deltaY))) {
-      return
-    }
+    const path = e.composedPath() as HTMLElement[]
+    if (path.some(n => n instanceof HTMLElement && this.checkNestedScroll(n, e.deltaX, e.deltaY))) return
 
     e.preventDefault()
-    let deltaX = e.deltaX
-    let deltaY = e.deltaY
-    const deltaMode = e.deltaMode
-    const multiplierX = deltaMode === 1 ? ScrollHandle.LINE_HEIGHT : deltaMode === 2 ? window.innerWidth : 1
-    const multiplierY = deltaMode === 1 ? ScrollHandle.LINE_HEIGHT : deltaMode === 2 ? window.innerHeight : 1
-
-    deltaX *= multiplierX * this.options.wheelMultiplier
-    deltaY *= multiplierY * this.options.wheelMultiplier
-
+    const m = e.deltaMode === 1 ? ScrollHandle.LINE_HEIGHT : e.deltaMode === 2 ? window.innerHeight : 1
+    const deltaX = e.deltaX * m * this.options.wheelMultiplier
+    const deltaY = e.deltaY * m * this.options.wheelMultiplier
     this.callback?.({ deltaX, deltaY, event: e })
   }
 
@@ -88,10 +70,7 @@ export class ScrollHandle {
     const deltaX = -(t.clientX - this.touch.x) * this.options.touchMultiplier
     const deltaY = -(t.clientY - this.touch.y) * this.options.touchMultiplier
 
-    const composedPath = e.composedPath() as HTMLElement[]
-    if (composedPath.some(node => node instanceof HTMLElement && this.checkNestedScroll(node, deltaX, deltaY))) {
-      return
-    }
+    if ((e.composedPath() as HTMLElement[]).some(n => n instanceof HTMLElement && this.checkNestedScroll(n, deltaX, deltaY))) return
 
     this.touch.x = t.clientX
     this.touch.y = t.clientY
