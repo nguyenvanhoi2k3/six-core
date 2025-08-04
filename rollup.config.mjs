@@ -15,11 +15,13 @@ const plugins = [
   }),
   terser({
     format: {
-      comments: false,
+      comments: false, //Loại bỏ tất cả comment
     },
     compress: {
       drop_console: true,
+      pure_funcs: ['console.log'] // Loại bỏ tất cả console.log, giữ lại warn/error
     },
+    mangle: true,// Rút gọn tên biến/hàm/class
   }),
 ];
 
