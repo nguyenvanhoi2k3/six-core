@@ -1,7 +1,7 @@
 import { ScrollTween } from './ScrollTween'
 import { ScrollHandle } from './ScrollHandle'
 import { HookSystem } from './HookSystem'
-import { clamp, saveIndex } from './Math'
+import { clamp, safeIndex } from './Math'
 
 export interface SmoothScrollOptions {
   lerp?: number
@@ -74,7 +74,7 @@ export class SmoothScroll {
 
   get scroll(): number {
     return this.options.loop
-      ? saveIndex(this.animatedScroll, this.limit)
+      ? safeIndex(this.animatedScroll, this.limit)
       : this.animatedScroll
   }
 
