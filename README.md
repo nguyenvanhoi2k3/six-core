@@ -26,6 +26,7 @@ smoothScroll.on("scroll", (data) =>
 
 ```javascript
 // Init
+<script src="https://cdn.jsdelivr.net/gh/nguyenvanhoi2k3/six-core@version/dist/six-core.iife.min.js" defer></script>
 const scroll = new six.SmoothScroll({});
 
 // Start smooth scrolling
