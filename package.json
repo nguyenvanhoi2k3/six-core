@@ -1,6 +1,6 @@
 {
   "name": "six-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/six-core.umd.min.js",
   "unpkg": "dist/six-core.iife.min.js",
   "module": "dist/six-core.esm.min.js",
