@@ -26,28 +26,17 @@
         <div class="scroll-item">🍉 Item 13</div>
       </div>
     </div>
-    <!-- <script src="https://cdn.jsdelivr.net/gh/nguyen-van-hoi/six@v1.0.1/dist/six.iife.min.js"></script> -->
-    <!-- <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/nguyenvanhoi2k3/six-core@v1.0.0/dist/six-core.iife.min.js"></script>
+    <script>
+      const scroll = new sixjs.SmoothScroll({});
 
-    <script type="module" src="main.ts"></script>
+      // Start smooth scrolling
+      scroll.start();
 
-    <!-- <script>
-      // Initialize Lenis
-      const lenis = new Lenis({infinite: true});
-
-      // Use requestAnimationFrame to continuously update the scroll
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-        console.log("🚀 ~ lenis.scroll:", lenis.scroll)
-      }
-
-      requestAnimationFrame(raf);
-      if (lenis.scroll === 0) {
-        console.log("Trang web đang ở đầu trang");
-      } else {
-        console.log("Trang web chưa ở đầu trang");
-      }
-    </script> -->
+      // Listen to scroll events
+      scroll.on("scroll", (data) =>
+        console.log(scroll.isAtTop ? "At top:" : "Current scroll:", data.scroll)
+      );
+    </script>
   </body>
 </html>

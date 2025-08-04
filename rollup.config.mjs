@@ -42,7 +42,7 @@ const config = [
     output: {
       file: 'dist/six-core.umd.min.js',
       format: 'umd',
-      name: 'sixjs',
+      name: 'six',
       sourcemap: true,
     },
     plugins,
@@ -55,7 +55,7 @@ const config = [
     output: {
       file: 'dist/six-core.iife.min.js',
       format: 'iife',
-      name: 'sixjs',
+      name: 'six',
       sourcemap: true,
     },
     plugins,
