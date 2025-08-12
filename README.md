@@ -31,11 +31,11 @@ smoothScroll.on("scroll", (data) =>
 const scroll = new six.SmoothScroll({});
 
 // Start smooth scrolling
-smoothScroll.start();
+scroll.start();
 
 // Listen to scroll events
-smoothScroll.on("scroll", (data) =>
-  console.log(smoothScroll.isAtTop ? "At top:" : "Current scroll:", data.scroll)
+scroll.on("scroll", (data) =>
+  console.log(scroll.isAtTop ? "At top:" : "Current scroll:", data.scroll)
 );
 </script>
 ```
